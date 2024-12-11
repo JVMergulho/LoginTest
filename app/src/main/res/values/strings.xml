@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LogisTest</string>
+    <string name="login">LOGIN</string>
+    <string name="senha">Senha</string>
+    <string name="e_mail">E-mail</string>
+    <string name="bem_vindo">Bem Vindo!</string>
+</resources>
