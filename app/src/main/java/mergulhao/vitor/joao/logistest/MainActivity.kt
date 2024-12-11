@@ -1,5 +1,6 @@
 package mergulhao.vitor.joao.logistest
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -28,8 +29,11 @@ class MainActivity : ComponentActivity() {
             val email = binding.edtEmail.text.toString().trim()
             val password = binding.edtPassword.text.toString().trim()
 
-            if(checkCredentials(email, password))
+            if(checkCredentials(email, password)){
                 Toast.makeText(this, "sucess", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, SecondActivity::class.java)
+                startActivity(intent)
+            }
             else
                 Toast.makeText(this, "invalid credentials", Toast.LENGTH_SHORT).show()
         }
