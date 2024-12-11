@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import mergulhao.vitor.joao.logistest.databinding.ActivityMainBinding
 import mergulhao.vitor.joao.logistest.ui.theme.LogisTestTheme
+import java.util.Date
 
 class MainActivity : ComponentActivity() {
 
@@ -32,7 +33,11 @@ class MainActivity : ComponentActivity() {
             if(checkCredentials(email, password)){
                 Toast.makeText(this, "sucess", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("USER", email)
+                intent.putExtra("DATE_HOUR", Date().toString())
                 startActivity(intent)
+                // destroy this activity
+                finish()
             }
             else
                 Toast.makeText(this, "invalid credentials", Toast.LENGTH_SHORT).show()
