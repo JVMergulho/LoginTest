@@ -1,6 +1,7 @@
 package mergulhao.vitor.joao.logistest
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -22,5 +23,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnLogin.setOnClickListener(){
+            val email = binding.edtEmail.text.toString().trim()
+            val password = binding.edtPassword.text.toString().trim()
+
+            if(checkCredentials(email, password))
+                Toast.makeText(this, "sucess", Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(this, "invalid credentials", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun checkCredentials(email: String, password: String): Boolean{
+        return email == "jvlm2@cin.ufpe.br" && password == "1234"
     }
 }
